@@ -49,6 +49,9 @@ This project is a application that allows the user to search up a particular sto
 
 ![Screenshot 2023-12-22 at 4 49 32 PM](https://github.com/karsharma10/Financial_Markets_App/assets/64170090/f3f01cb6-1971-4643-b318-eaf3ba634574)
 
+![Screenshot 2023-12-22 at 4 57 13 PM](https://github.com/karsharma10/Financial_Markets_App/assets/64170090/d3ec976a-c353-42f0-aaeb-3cc03e8c829e)
+
+
 
 
 
