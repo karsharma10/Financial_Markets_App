@@ -31,7 +31,9 @@ This project is a application that allows the user to search up a particular sto
 - HTML <br>
 - CSS <br>
 - ReactJS <br>
-- Tailwind CSS <br>
+- Tailwind CSS <be>
+- Bootstrap CSS <br>
+
 
 **Application Server (Back-End):** <br>
 - Uses Polygon RESTAPI <br>
