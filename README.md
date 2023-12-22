@@ -41,6 +41,7 @@ This project is a application that allows the user to search up a particular sto
 
 # Prerequisites to run:
 - Docker
+- API Key from Polygon.io
 
 # Screenshots of Application:
 
