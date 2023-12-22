@@ -27,13 +27,13 @@ This project is a application that allows the user to search up a particular sto
 **Database:** <br>
 - PostgreSQL <br>
 
-**UI Tools:** <br>
+**Front-End:** <br>
 - HTML <br>
 - CSS <br>
 - ReactJS <br>
 - Tailwind CSS <br>
 
-**Application Server:** <br>
+**Application Server (Back-End):** <br>
 - Uses Polygon RESTAPI <br>
 - Express <br>
 - NodeJS <br>
