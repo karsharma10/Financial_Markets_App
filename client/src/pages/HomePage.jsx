@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import {useState} from 'react'
+import {Dialog} from '@headlessui/react'
+import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import {NavLink} from "react-router-dom";
 
 const navigation = [
-    { name: 'Product', href: '#' },
-    { name: 'Features', href: '#' },
-    { name: 'Marketplace', href: '#' },
-    { name: 'Company', href: '#' },
+    {name: 'Product', href: '#'},
+    {name: 'Features', href: '#'},
+    {name: 'Marketplace', href: '#'},
+    {name: 'Company', href: '#'},
 ]
 
 export default function Example() {
@@ -34,12 +34,13 @@ export default function Example() {
                             onClick={() => setMobileMenuOpen(true)}
                         >
                             <span className="sr-only">Open main menu</span>
-                            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                            <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
                         </button>
                     </div>
                     <div className="hidden lg:flex lg:gap-x-12">
                         {navigation.map((item) => (
-                            <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+                            <a key={item.name} href={item.href}
+                               className="text-sm font-semibold leading-6 text-gray-900">
                                 {item.name}
                             </a>
                         ))}
@@ -51,8 +52,9 @@ export default function Example() {
                     </div>
                 </nav>
                 <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-                    <div className="fixed inset-0 z-50" />
-                    <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                    <div className="fixed inset-0 z-50"/>
+                    <Dialog.Panel
+                        className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">
                             <a href="#" className="-m-1.5 p-1.5">
                                 <span className="sr-only">Your Company</span>
@@ -68,7 +70,7 @@ export default function Example() {
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 <span className="sr-only">Close menu</span>
-                                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                                <XMarkIcon className="h-6 w-6" aria-hidden="true"/>
                             </button>
                         </div>
                         <div className="mt-6 flow-root">
@@ -113,10 +115,11 @@ export default function Example() {
                 </div>
                 <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
                     <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                        <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                        <div
+                            className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                             Announcing our next round of funding.{' '}
                             <a href="#" className="font-semibold text-indigo-600">
-                                <span className="absolute inset-0" aria-hidden="true" />
+                                <span className="absolute inset-0" aria-hidden="true"/>
                                 Read more <span aria-hidden="true">&rarr;</span>
                             </a>
                         </div>
@@ -126,7 +129,8 @@ export default function Example() {
                             Welcome to The Financial Markets Application
                         </h1>
                         <p className="mt-6 text-lg leading-8 text-gray-600">
-                            "Navigate the world of finance with clarity and confidence using The Financial Markets Application - your gateway to informed decisions."
+                            "Navigate the world of finance with clarity and confidence using The Financial Markets
+                            Application - your gateway to informed decisions."
                         </p>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <NavLink
