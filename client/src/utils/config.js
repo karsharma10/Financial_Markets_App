@@ -5,4 +5,4 @@ export const config = {
     ADD_USER_ENDPOINT: "/add-user",
 };
 
-export default axios.create({ baseURL: "http://localhost:8080" });
+export default axios.create({baseURL: "http://localhost:8080"});
