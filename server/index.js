@@ -23,19 +23,16 @@ const db = pgp(dbConfig);
 
 /*** Defining endpoints below, where the end points are used in the config.js file in the client side***/
 
-// TO-DO:
-//Add hashing to this function below
-//Add error message to the screen
-app.post("/login-user", (req, res) => {
+app.post("/login-user",  (req, res) => {
     console.log(req.body.password);
     //run a query to the database to see if that email and password match:
 
-    db.any((`SELECT password FROM users where users.email = '${req.body.email}'` +";"))
-        .then((data)=>{
-            if(data[0].password === req.body.password){
+    db.any((`SELECT password FROM users where users.email = '${req.body.email}'` + ";"))
+        .then(async (data) => {
+            const match = await bcrypt.compare(req.body.password, data[0].password); //compare the hashes of input and password in the database
+            if (match === true) {
                 res.json(true);
-            }
-            else{
+            } else {
                 res.json(false);
             }
         })
@@ -43,37 +40,30 @@ app.post("/login-user", (req, res) => {
             res.json("Your Account Doesn't Exist");
         });
 });
+app.post("/add-user", async (req, res) => {
 
+    res.json(true)
+    const {email, firstName, lastName, password} = req.body || {}
+    const hash = await bcrypt.hash(password, 10); //hash the password that is used
+
+    if (!email || !firstName || !lastName || !password) {
+        res.status(400).json({message: "Please provide all the fields"})
+    } else {
+        db.query("INSERT INTO users (firstName, lastName, email, password) VALUES ($1, $2, $3, $4)", [firstName, lastName, email, hash])
+            .then(r => {
+                console.log(r)
+            })
+            .catch((err) => {
+                res.json(err);
+            });
+    }
+
+})
 app.get("/", (req, res) => {
     res.send("hello from server");
 });
 
-app.post("/add-user", (req,res)=>{
-    console.log(req.body);
-    res.json(true)
-})
 
-
-
-// app.post("/add-user", (req, res) => {
-//     const {username, profile_image, description} = req.body || {};
-//
-//     if (!username || !profile_image || !description) {
-//         res.status(400).json({message: "Please provide all fields"});
-//     } else {
-//         db.query(
-//             "INSERT INTO users (username, profile_image, description) VALUES ($1, $2, $3) returning username, description, profile_image;",
-//             [username, profile_image, description]
-//         )
-//             .then((data) => {
-//                 console.log(data[0]);
-//                 res.json(data[0]);
-//             })
-//             .catch((err) => {
-//                 res.json(err);
-//             });
-//     }
-// });
 app.listen(PORT, () => {
     console.log(`Server initiated on ${PORT}`);
 });
